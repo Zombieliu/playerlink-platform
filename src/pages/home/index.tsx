@@ -1,4 +1,5 @@
 import React, {useRef ,useEffect} from 'react'
+import Header from"../../components/header"
 const DAPP=[
     {
         id:"1",
@@ -100,6 +101,7 @@ const toend=[
     },
 ]
 
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -168,11 +170,10 @@ export default function Home() {
             }
         }
     }
-    useEffect(()=>{
+   React.useEffect(()=>{
         dot1.current.style.background="white"
         setInterval(()=>{
 
-            right()
         },8000)
 
     },[])
@@ -182,10 +183,12 @@ export default function Home() {
 
 
             <main>
-
+                <Header></Header>
                 <div>
+
                     {/* Hero card */}
             <div className="relative  bg-gray-100">
+
             <div className="pt-10">
 
             <div className="relative mt-20 w-11/12  md:w-10/12  mx-auto ">
@@ -325,7 +328,6 @@ export default function Home() {
 
                 {/* More main page content here... */}
             </main>
-
 
     )
 }
