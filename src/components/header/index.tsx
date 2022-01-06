@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react'
-import {Link,Route,Routes,BrowserRouter,} from 'react-router-dom';
+import React, {Fragment, useState} from 'react'
+import Link from 'next/link'
+import Router from 'next/router'
+import {withRouter,} from "next/router"
 import { Popover, Transition } from '@headlessui/react'
 import {
     AnnotationIcon,
@@ -9,24 +11,33 @@ import {
     QuestionMarkCircleIcon,
     XIcon,
 } from '@heroicons/react/outline'
-import Home from "../home";
-import Partners from "../partners";
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')}
 const navigation = [
-    { name: 'Home', href: '/home' },
-    { name: 'Pricing', href: '#' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Company', href: '#' },
+    { name: 'Home',    href: '/home',current:true},
+    { name: 'Pricing', href: '#' ,current:false},
+    { name: 'Partners',href: '/partners/all',current:false },
+    { name: 'Company', href: '#',current:false },
 
 ]
 
-export default function Header() {
 
+ function Header() {
+    const [loginstate,setloginstate] = useState("Sign up")
+
+
+     async function login(){
+         const web3Enable = (await import("@polkadot/extension-dapp")).web3Enable;
+         const web3Accounts = (await import("@polkadot/extension-dapp")).web3Accounts;
+         const web3FromAddress = (await import("@polkadot/extension-dapp")).web3FromAddress;
+         const allInjected = await web3Enable('my cool dapp');
+         const allAccounts = await web3Accounts();
+         setloginstate(allAccounts[0].meta.name)
+         console.log(allAccounts);
+     }
         return (
 
-
-
-            <div className="min-h-screen bg-white">
-
+            <div className=" bg-white">
             <header>
                 <Popover className="relative bg-white ">
                     <div className="flex fixed z-20 inset-x-0 bg-white justify-between items-center  mx-auto px-4 py-3 sm:px-6 md:justify-start md:space-x-10 xl:px-32 border-b border-black">
@@ -39,13 +50,23 @@ export default function Header() {
                                     alt=""
                                 />
                             </a>
-                            <Popover.Group as="nav" className="hidden -mr-4 2xl:ml-4 md:flex space-x-10  ">
+                            <Popover.Group as="nav" className="hidden -mr-4 2xl:ml-4 md:flex space-x-10  " aria-label="Tabs">
+
 
 
                                 {navigation.map((item) => (
-                                    <a key={item.name} href={item.href} className=" text-base rounded-lg p-2 font-medium text-black hover:bg-blue-500 active:bg-green-700">
-                                        {item.name}
-                                    </a>
+
+                                    <Link key={item.name} href={item.href}  >
+
+                                        <a   className={classNames(
+                                            item.current
+                                                ? 'border-indigo-500 text-indigo-600'
+                                                : '',
+                                            'text-base rounded-lg p-2 font-medium text-black hover:bg-blue-500'
+                                        )}
+                                             >{item.name}</a>
+                                    </Link>
+
 
                                 ))}
                             </Popover.Group>
@@ -65,12 +86,13 @@ export default function Header() {
                                     <i className=" fa fa-search p-2" aria-hidden="true"></i>
                                 </div>
                             </form>
-                            <a
-                                href=""
+                            <button
+                                onClick={login}
                                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                             >
-                                Sign up
-                            </a>
+                                {loginstate}
+                            </button>
+
                         </div>
                     </div>
 
@@ -117,13 +139,14 @@ export default function Header() {
 
                                     {navigation.map((item) => (
                                         <div   key={item.name} className="m-1 pt-2 text-center ">
+                                            <Link href={item.href}>
                                             <a
 
-                                                href={item.href}
+
                                                 className=" p-1  text-xl rounded-lg bg-indigo-300 font-medium text-gray-50"
                                             >
                                                 {item.name}
-                                            </a></div>
+                                            </a></Link></div>
                                     ))}
 
                                     <div className="mt-6">
@@ -141,15 +164,9 @@ export default function Header() {
                     </Transition>
                 </Popover>
             </header>
-
-               <Partners></Partners>
-                {/*<Routes>*/}
-                {/*<Route path="/home" element={<Home/>}/>*/}
-                {/*<Route path="/partners" element={<Partners/>}/>*/}
-                {/*</Routes>*/}
             </div>
-
 
         );
 }
+export default withRouter(Header)
 
