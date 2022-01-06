@@ -133,6 +133,7 @@ export default function Details() {
                 console.log(`Completed at block hash #${status.asInBlock.toString()}`);
                 setOpenload(true)
             } else if (status.isFinalized) {
+                console.log(`Completed at block hash #${status.asFinalized.toString()}`);
                 setOpenload(false)
                   setOpen(true)
             } else{

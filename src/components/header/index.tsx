@@ -27,13 +27,21 @@ const navigation = [
 
 
      async function login(){
+         const isWeb3Injected = (await import("@polkadot/extension-dapp")).isWeb3Injected;
          const web3Enable = (await import("@polkadot/extension-dapp")).web3Enable;
-         const web3Accounts = (await import("@polkadot/extension-dapp")).web3Accounts;
-         const web3FromAddress = (await import("@polkadot/extension-dapp")).web3FromAddress;
          const allInjected = await web3Enable('my cool dapp');
+         const web3Accounts = (await import("@polkadot/extension-dapp")).web3Accounts;
          const allAccounts = await web3Accounts();
-         setloginstate(allAccounts[0].meta.name)
-         console.log(allAccounts);
+         if (isWeb3Injected) {
+             const accounts = await web3Accounts();
+             for (let i = 0;i < allAccounts.length;i++){
+                 console.log(allAccounts[i].meta.name)
+             }
+             // setloginstate(allAccounts[0].meta.name)
+             console.log(allAccounts.length);
+         } else {
+             alert("fuck")
+         }
      }
         return (
 
