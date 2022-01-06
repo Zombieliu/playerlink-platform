@@ -125,7 +125,7 @@ export default function Details() {
         console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
 
         const account = allAccounts[0];
-        const transferExtrinsic = api.tx.balances.transfer('5CcgM2vkikJv6utQaS6jWDhV6DgnoyacKE81qzXZ52FSxkY8', 100000000000000)
+        const transferExtrinsic = api.tx.balances.transfer('5GrhDF1nyvr2nwgvXtY96RoFs5xr15W7WyHg32LkQRz6X8Pk', 100000000000000)
         const injector = await web3FromSource(account.meta.source);
 
         transferExtrinsic.signAndSend(account.address, {signer: injector.signer}, ({status}) => {
@@ -134,8 +134,8 @@ export default function Details() {
                 setOpenload(true)
             } else if (status.isFinalized) {
                 setOpenload(false)
-                setOpen(true)
-            }else{
+                  setOpen(true)
+            } else{
                 console.log(`Current status: ${status.type}`);
             }
         }).catch((error: any) => {
