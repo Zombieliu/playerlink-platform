@@ -3,7 +3,7 @@ import Header from"../../components/header"
 const DAPP=[
     {
         id:"1",
-        img:"https://cdn.frontenduse.top/prod/img/dapp_list_matataki.8bac289.png",
+        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
         title:"瞬Matataki",
         text:"公开永存的数字作品库",
         button1:"GitHub address",
@@ -14,7 +14,7 @@ const DAPP=[
     },
     {
         id:"2",
-        img:"https://cdn.frontenduse.top/prod/img/dapp_list_matataki.8bac289.png",
+        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
         title:"瞬Matataki",
         text:"公开永存的数字作品库",
         button1:"GitHub address",
@@ -24,7 +24,7 @@ const DAPP=[
 
     }, {
         id:"3",
-        img:"https://cdn.frontenduse.top/prod/img/dapp_list_matataki.8bac289.png",
+        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
         title:"瞬Matataki",
         text:"公开永存的数字作品库",
         button1:"GitHub address",
@@ -34,7 +34,7 @@ const DAPP=[
 
     },{
         id:"4",
-        img:"https://cdn.frontenduse.top/prod/img/dapp_list_matataki.8bac289.png",
+        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
         title:"瞬Matataki",
         text:"公开永存的数字作品库",
         button1:"GitHub address",
@@ -47,7 +47,7 @@ const DAPP=[
 const Tool=[
     {
         id:"1",
-        img:"https://cdn.frontenduse.top/prod/img/dapp_list_exchange.ef39664.png",
+        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
         title:"Fan票交换事务所",
         text:"基于Uniswap的Fan票交易工具",
         button1:"GitHub address",
@@ -59,7 +59,7 @@ const Tool=[
 const Otehr=[
     {
         id:"1",
-        img:"https://cdn.frontenduse.top/prod/img/dapp_list_doc.cb75f90.png",
+        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
         title:"开发文档",
         text:"关于瞬Matataki的开发文档",
         button1:"GitHub address",

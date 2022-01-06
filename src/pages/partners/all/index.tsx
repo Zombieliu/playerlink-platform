@@ -14,7 +14,7 @@ function classNames(...classes) {
 const all=[
     {
         href:"/partners/details",
-        img:"https://cdn.discordapp.com/attachments/897398778166906911/916742296941244496/unknown.png",
+        img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmZ7TFZe7B5Ts8SZaiiPLcXCXbFmVtFnAK3aPwZD9dnRcZ!list",
         h1:"GAME",
         h2:"$10.0 PL",
         nameimg:"https://cdn.discordapp.com/attachments/897398778166906911/928298254746140722/liu.jpg",
