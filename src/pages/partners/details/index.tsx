@@ -102,7 +102,7 @@ export default function Details() {
     const cancelButtonRef = useRef(null)
     const [openno, setOpenno] = useState(false)
     const [open, setOpen] = useState(false)
-    const[openload ,setOpenload]=useState(true)
+    const[openload ,setOpenload]=useState(false)
     async function Pay() {
         setOpenno(false)
         const web3Enable = (await import("@polkadot/extension-dapp")).web3Enable;
