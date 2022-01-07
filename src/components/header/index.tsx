@@ -58,7 +58,6 @@ const navigation = [
          setOpentrue(false)
          setOpenat(true)
      }
-
      let atname
      const getvalue =(e)=>{
          atname =e.currentTarget.firstElementChild.innerHTML
