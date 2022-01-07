@@ -104,6 +104,7 @@ export default function Details() {
     const [open, setOpen] = useState(false)
     const[openload ,setOpenload]=useState(false)
     async function Pay() {
+
         setOpenno(false)
         const web3Enable = (await import("@polkadot/extension-dapp")).web3Enable;
         const web3Accounts = (await import("@polkadot/extension-dapp")).web3Accounts;
@@ -148,7 +149,6 @@ export default function Details() {
     return(
         <div  className="relative  ">
             <Header></Header>
-
             <div className="md:pt-16 px-8 flex ">
                 <div className="pt-16 md:flex ">
                     <Top></Top>
