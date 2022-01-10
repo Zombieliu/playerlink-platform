@@ -9,35 +9,35 @@ function classNames(...classes) {
 
 const type=[
     {
-        href:"/partners/all",
+        href:"/square/all",
         title:"ALL",
     },
     {
-        href:"/partners/art",
+        href:"/square/art",
         title:"Art",
     },
     {
-        href:"/partners/music",
+        href:"/square/music",
         title:"Music",
     },
     {
-        href:"/partners/acg",
+        href:"/square/acg",
         title:"ACG",
     },
     {
-        href:"/partners/sports",
+        href:"/square/sports",
         title:"Sports",
     },
     {
-        href:"/partners/trendy",
+        href:"/square/trendy",
         title:"Trendy",
     },
     {
-        href:"/partners/game",
+        href:"/square/game",
         title:"Game",
     },
     {
-        href:"/partners/collectibles",
+        href:"/square/collectibles",
         title:"Collectibles",
     },
 ]

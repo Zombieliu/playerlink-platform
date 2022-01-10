@@ -3,43 +3,43 @@ import Header from"../../components/header"
 const DAPP=[
     {
         id:"1",
-        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
-        title:"瞬Matataki",
-        text:"公开永存的数字作品库",
+        img:"https://cdn.discordapp.com/attachments/897398778166906911/928298254746140722/liu.jpg",
+        title:"Henry",
+        text:"GameRandomServe",
         button1:"GitHub address",
-        button1href:"#",
-        button2:"Visit website",
-        button2href:"#",
+        button1href:"https://github.com/Zombieliu/nodejs-ts-template/tree/near-koa",
+        button2:"Visit Serve",
+        button2href:"/square/details",
 
     },
     {
         id:"2",
-        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
-        title:"瞬Matataki",
-        text:"公开永存的数字作品库",
+        img:"https://cdn.discordapp.com/attachments/897398778166906911/928294692767010906/20220105223124.jpg",
+        title:"Able",
+        text:"Wang",
         button1:"GitHub address",
         button1href:"#",
-        button2:"Visit website",
+        button2:"Visit Serve",
         button2href:"#",
 
     }, {
         id:"3",
-        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
-        title:"瞬Matataki",
-        text:"公开永存的数字作品库",
+        img:"https://cdn.discordapp.com/attachments/897398778166906911/928294804633305128/20220105223158.jpg",
+        title:"David",
+        text:"Xing",
         button1:"GitHub address",
         button1href:"#",
-        button2:"Visit website",
+        button2:"Visit Serve",
         button2href:"#",
 
     },{
         id:"4",
-        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
-        title:"瞬Matataki",
-        text:"公开永存的数字作品库",
+        img:"https://cdn.discordapp.com/attachments/897398778166906911/928512630786760775/join.jpg",
+        title:"Join",
+        text:"Ma",
         button1:"GitHub address",
         button1href:"#",
-        button2:"Visit website",
+        button2:"Visit Serve",
         button2href:"#",
 
     }
@@ -47,57 +47,65 @@ const DAPP=[
 const Tool=[
     {
         id:"1",
-        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
-        title:"Fan票交换事务所",
-        text:"基于Uniswap的Fan票交易工具",
+        img:"https://cdn.discordapp.com/attachments/897398778166906911/928512630539305030/b08c0aaa4908598c.jpg",
+        title:"FengFeng",
+        text:"Feng",
         button1:"GitHub address",
         button1href:"#",
-        button2:"Visit website",
+        button2:"Visit Serve",
         button2href:"#",
 
     },]
 const Otehr=[
     {
         id:"1",
-        img:"https://matataki-client.oss-cn-shanghai.aliyuncs.com/prod/img/dapp_list_matataki.8bac289.png",
-        title:"开发文档",
-        text:"关于瞬Matataki的开发文档",
+        img:"https://cdn.discordapp.com/attachments/897398778166906911/928512631030034482/20220106125631.jpg",
+        title:"GuangHui",
+        text:"Cheng",
         button1:"GitHub address",
         button1href:"#",
-        button2:"Visit website",
-        button2href:"#",
+        button2:"Visit Serve",
+        button2href:"",
 
     },]
 const toend=[
     {
-        title:"快捷入口",
-        h1:"About Matataki",
+        title:"Quick Entry",
+        h1:"About PlayerLink",
         h1url:"#",
         h2:"Manual",
         h2url:"#",
         h3:"Update record",
         h3url:"#",
         h4:"Any feedback",
-        h4url:"#"
+        h4url:"#",
+        h5:"",
+        h5url:"",
     },
     {
-        title:"友情链接",
-        h1:"Playerlink",
-        h1url:"https://www.playerlink.io/",
-        h2:"Matters",
-        h2url:"",
-        h3:"Maskbook",
-        h3url:""
+        title:"Links",
+        h1:"Protocol",
+        h1url:"https://playerlink.org/",
+        h2:"Network ",
+        h2url:"https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fplayerlink.network#/explorer",
+        h3:"Foundation",
+        h3url:" https://playerlink.foundation/",
+        h4:"Ventures ",
+        h4url:"https://playerlink.ventures/",
+        h5:"Capital ",
+        h5url:" https://playerlink.capital/"
     },{
         title:"社区",
         h1:"Discord",
-        h1url:"https://discord.gg/gJuDTcdUjj",
+        h1url:"https://discord.gg/Hypkryxwsb",
         h2:"Twitter",
         h2url:"#",
         h3:"Instagram",
         h3url:"#",
         h4:'Medium',
-        h4url:""
+        h4url:"",
+        h5:"",
+        h5url:"",
     },
 ]
 
@@ -221,13 +229,14 @@ export default function Home() {
                 <div className="relative pt-20 px-4 py-3 sm:px-6  xl:px-32">
                             {/*FIRST*/}
                             <div>
-                            <div className="py-2">DAPP</div>
+                                <div className="flex">
+                            <div className="py-2 flex text-2xl font-extrabold">Hot Serve </div><div className="w-16 h-15 ml-2 -mb-4" style={{backgroundImage:"url('https://cdn.jsdelivr.net/npm/emoji-datasource-apple@6.0.1/img/apple/64/1f525.png') "}}></div></div>
                             <div  className="mt-5 flex flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                                 {DAPP.map((item)=>(
                                     <div key={item.id} className="m-2 rounded-lg bg-white  transform duration-700 hover:shadow-2xl hover:-translate-y-1">
                                     <div className="p-5 text-center ">
-                                    <div>
-                                        <img className="w-28 py-5 mx-auto object-contain"
+                                    <div className="">
+                                        <img className="w-28  py-5 mx-auto object-contain"
                                              src= {item.img} alt=""/>
                                     </div>
                                     <div className="py-8 font-bold text-lg">{item.title}</div>
@@ -245,7 +254,7 @@ export default function Home() {
                         </div>
                         {/* TWO   */}
                             <div>
-                            <div className="pt-7 ">Tool</div>
+                            <div className="pt-7 text-2xl font-extrabold">Latest Serve</div>
                             <div className="mt-5 flex flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                                 {Tool.map((item)=>(
                                     <div key={item.id} className="m-2 rounded-lg bg-white  transform duration-700 hover:shadow-2xl hover:-translate-y-1 ">
@@ -269,7 +278,7 @@ export default function Home() {
                             </div>
                         {/*   three */}
                             <div>
-                                <div className="pt-7 ">Other</div>
+                                <div className="pt-7 text-2xl font-extrabold">Service In Preparation </div>
                                 <div className="mt-5 flex flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                                     {Otehr.map((item)=>(
                                         <div key={item.id} className="m-2 rounded-lg bg-white  transform duration-700 hover:shadow-2xl hover:-translate-y-1">
@@ -314,12 +323,14 @@ export default function Home() {
                                                     <a href={ends.h3url}>{ends.h3}</a></p>
                                                 <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
                                                     <a href={ends.h4url}>{ends.h4}</a></p>
+                                                <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
+                                                    <a href={ends.h5url}>{ends.h5}</a></p>
                                             </h2>
                                         </div>
                                     </div>))}
                             </div>
                             <p className=" text-center p-5 text-left mt-16 text-sm font-semibold uppercase text-gray-500 tracking-wide">
-                                ©2021 CRYPTOFISHING, A PLAYERLINK COMPANY. All RIGHTS RESERVED.
+                                ©2022 PlayerLink-Platform,A service platform built on PlayerLink.  All RIGHTS RESERVED.
                             </p>
 
                         </div>

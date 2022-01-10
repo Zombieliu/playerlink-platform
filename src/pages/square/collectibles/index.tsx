@@ -1,16 +1,19 @@
 import React, { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 import Header from "../../../components/header";
-import Left from "../../../components/partners/left"
-import Top from "../../../components/partners/top"
+import Left from "../../../components/square/left"
+import Top from "../../../components/square/top"
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const acg=[
+
+const collectibles=[
     {
         href:"",
-        img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmRg2BuNK6bMygGHvD7r7peGVvaj72Dg4P6BiqFXXcFwzD!list",
+        img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmQhR4GA7ELbcVw36PujUHG1AtBtWoGEUjikVLPdGUwULC!list",
         h1:"Miao",
         h2:"-NMT",
         nameimg:"https://nft-1257035533.cos.accelerate.myqcloud.com/user/825ed564-a802-4c45-a7db-d50594cee7af",
@@ -26,7 +29,7 @@ const acg=[
     },
 
 ]
-export default function Acg() {
+export default function Collectibles() {
     return (
         <div  className="relative  ">
             <Header></Header>
@@ -38,7 +41,7 @@ export default function Acg() {
                         <Left></Left>
                         <div className="md:ml-5 mt-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
-                                {acg.map((item)=>(
+                                {collectibles.map((item)=>(
                                     <a key={item.h1} href={item.href} className="md:mx-3 md:mr-5 my-2 transform duration-500 hover:shadow-2xl hover:-translate-y-2">
                                         <div className="rounded-lg border border-gray-300">
                                             <img className="rounded-lg"

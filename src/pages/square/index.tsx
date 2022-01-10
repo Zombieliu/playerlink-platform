@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Header from "../../components/header";
-import Left from "../../components/partners/left"
-import Top from "../../components/partners/top"
+import Left from "../../components/square/left"
+import Top from "../../components/square/top"
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -41,7 +41,7 @@ const commodity=[
         name:"SWANGZHE"
     },
 ]
-export default function Partners() {
+export default function Square() {
     return (
         <div  className="relative  ">
             <Header></Header>
