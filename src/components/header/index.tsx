@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import Link from 'next/link'
 import {withRouter,} from "next/router"
 import {Dialog,Menu, Popover, Transition} from '@headlessui/react'
@@ -10,6 +10,7 @@ import {
     QuestionMarkCircleIcon,
     XIcon,
 } from '@heroicons/react/outline'
+import {ApiPromise, WsProvider} from "@polkadot/api";
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')}
 const navigation = [
@@ -32,6 +33,7 @@ const navigation = [
      const[account,setAccount]=useState([])
      //钱包余额
      const[money,setMoney]=useState(0)
+     const[openuser,setOpenuser]=useState(true)
    let allAccounts
      async function login(){
         if (loginstate==="Sign up"){
@@ -50,6 +52,12 @@ const navigation = [
          }
      }
     else{
+            const web3Enable = (await import("@polkadot/extension-dapp")).web3Enable;
+            const allInjected = await web3Enable('my cool dapp');
+            const web3Accounts = (await import("@polkadot/extension-dapp")).web3Accounts;
+            allAccounts = await web3Accounts();
+            setAccount(allAccounts);
+            console.log(allAccounts);
             select()
         }
     }
@@ -59,21 +67,74 @@ const navigation = [
          setOpenat(true)
      }
      let atname
+     let ataddress
      const getvalue =(e)=>{
          atname =e.currentTarget.firstElementChild.innerHTML
+         ataddress = e.currentTarget.firstElementChild.getAttribute('id')
      }
 
    const loginaccount=()=>{
         if (atname){
        setOpenat(false)
        setloginstate(atname)}
+       localStorage.setItem('walletname',atname)
+       localStorage.setItem('address',ataddress)
+       getbalance(ataddress)
 
   }
 
-  const flexible=()=>{
+      const flexible=()=>{
+
       select()
 
   }
+     const getbalance = async (address) =>{
+         const Alice = address;
+
+         // Initialise the provider to connect to the local node
+         const provider = new WsProvider('wss://playerlink.network');
+
+         const api = await ApiPromise.create({ provider });
+
+         // @ts-ignore
+         let { data: { free: previousFree }, nonce: previousNonce } = await api.query.system.account(Alice);
+         const balance_data = await api.query.system.account(Alice);
+
+         // @ts-ignore
+         const balance = balance_data.data.free.toString().slice(0,-10)
+
+         setMoney(balance)
+
+         console.log(`${Alice} has a balance of ${previousFree}, nonce ${previousNonce}`);
+         console.log(`You may leave this example running and start example 06 or transfer any value to ${Alice}`);
+
+         // Here we subscribe to any balance changes and update the on-screen value
+         api.query.system.account(Alice, ({ data: { free: currentFree }, nonce: currentNonce }) => {
+             // Calculate the delta
+             const change = currentFree.sub(previousFree);
+
+             // Only display positive value changes (Since we are pulling `previous` above already,
+             // the initial balance change will also be zero)
+             if (!change.isZero()) {
+                 console.log(`New balance change of ${change}, nonce ${currentNonce}`);
+                 previousFree = currentFree;
+                 previousNonce = currentNonce;
+             }
+         });
+
+     }
+
+     useEffect(()=>{
+         let walletname = localStorage.getItem('walletname')
+         if (walletname) {
+             let address = localStorage.getItem('address')
+             setloginstate(walletname)
+             getbalance(address)
+         }
+         else{
+             setloginstate('Sign up')
+         }
+     },[])
 
         return (
 
@@ -126,12 +187,12 @@ const navigation = [
                             {/*</form>*/}
 
                             {/*钱包金额*/}
-                            <div className="-mr-8 border-blue-300 border rounded-lg p-1 flex justify-end">
+                            <div className="-mr-8 border-blue-300 bg-gray-100 px-4 py-2 rounded-l-lg p-1 flex justify-end">
                                 {money} <div className="ml-0.5">PL</div>
                             </div>
                             <button
                                 onClick={login}
-                                className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium border-blue-300 border-2 text-black"
+                                className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium bg-blue-400 text-white"
                             >
                                 {loginstate}
                             </button>
@@ -420,7 +481,7 @@ const navigation = [
 
                                         {account.map((item) => (
                                         <div key={item.address} onClick={getvalue} className=" flex justify-between px-5 py-3 sm: border-t ">
-                                            <label  htmlFor={item.address}   className="font-medium text-gray-700">
+                                            <label  htmlFor={item.address} id={item.address}  className="font-medium text-gray-700">
                                                 {item.meta.name}
                                             </label>
                                             <input
@@ -459,6 +520,74 @@ const navigation = [
                         </div>
                     </Dialog>
                 </Transition.Root>
+                <Transition.Root show={openuser} as={Fragment}>
+                    <Dialog as="div" className="fixed z-20 inset-0 overflow-y-auto " onClose={setOpenuser}>
+                        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                            </Transition.Child>
+
+                            {/* This element is to trick the browser into centering the modal contents. */}
+                            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;
+          </span>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            >
+                                <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:y-8 sm:align-middle  sm:p-6 ">
+                                    <div>
+                                        <div className='flex justify-end text-xl'>
+                                            <button  onClick={() => setOpenuser(false)}
+                                                     className="fa fa-times " aria-hidden="true"></button>
+                                        </div>
+
+                                        <div className="mx-auto flex items-center justify-center h-16 w-16 p-1 rounded-full ">
+                                            <img src="https://cdn.discordapp.com/attachments/897398778166906911/918367515242029106/viewfile.png" alt=""/>
+                                        </div>
+                                        <div className="text-center font-bold">
+                                            Connect wallet
+                                        </div>
+                                        <div className="text-center text-sm">
+                                            To start using Playerlink Apps
+                                        </div>
+                                        <div className="mt-3 text-center sm:mt-5 border-t ">
+                                            <Dialog.Title as="h3" className="mt-3 text-lg leading-6 font-medium text-gray-900">
+                                                <button onClick={select}>
+                                                    <div className="flex justify-center">
+                                                        <img className="w-10 h-10" src="https://cdn.discordapp.com/attachments/876498266550853642/908665467273613392/unknown.png" alt=""/>
+                                                        <h1 className="ml-2 mt-2">Polkadot[.js] extension</h1>
+                                                        <div className="text-center mt-1.5 text-xl"><i className="ml-10  fa fa-arrow-right" aria-hidden="true"></i></div>
+                                                    </div>
+                                                </button>
+                                            </Dialog.Title>
+                                            <div className="mt-2">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-5 sm:mt-6 flex justify-center text-sm px-1 md:px-20 ">
+                                        By connecting, I accept Playerlink
+                                        <div><a className="text-blue-400 ml-0.5" href="">Terms of Service</a></div>
+                                    </div>
+                                </div>
+                            </Transition.Child>
+                        </div>
+                    </Dialog>
+                </Transition.Root>
+
             </div>
 
 

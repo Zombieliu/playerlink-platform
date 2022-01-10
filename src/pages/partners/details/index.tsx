@@ -111,7 +111,7 @@ export default function Details() {
         const web3FromSource = (await import("@polkadot/extension-dapp")).web3FromSource;
         const allInjected = await web3Enable('my cool dapp');
         const allAccounts = await web3Accounts();
-        const provider = new WsProvider('wss://testnet.web3games.org');
+        const provider = new WsProvider('wss://playerlink.network');
 
         // Create the API and wait until ready
         const api = await ApiPromise.create({provider});
@@ -126,7 +126,7 @@ export default function Details() {
         console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
 
         const account = allAccounts[0];
-        const transferExtrinsic = api.tx.balances.transfer('5GrhDF1nyvr2nwgvXtY96RoFs5xr15W7WyHg32LkQRz6X8Pk', 100000000000000)
+        const transferExtrinsic = api.tx.serve.registeredUseServerCertificate(0,0,100000000000)
         const injector = await web3FromSource(account.meta.source);
 
         transferExtrinsic.signAndSend(account.address, {signer: injector.signer}, ({status}) => {
