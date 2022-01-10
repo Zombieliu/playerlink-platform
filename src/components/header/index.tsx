@@ -33,7 +33,7 @@ const navigation = [
      const[account,setAccount]=useState([])
      //钱包余额
      const[money,setMoney]=useState(0)
-     const[openuser,setOpenuser]=useState(true)
+     const[openuser,setOpenuser]=useState(false)
    let allAccounts
      async function login(){
         if (loginstate==="Sign up"){
