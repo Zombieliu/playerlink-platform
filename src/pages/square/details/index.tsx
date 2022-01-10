@@ -5,8 +5,8 @@ import { StarIcon } from '@heroicons/react/solid';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { Tab } from '@headlessui/react';
 import Header from "../../../components/header";
-import Top from "../../../components/partners/top";
-import Left from "../../../components/partners/left";
+import Top from "../../../components/square/top";
+import Left from "../../../components/square/left";
 
 const product = {
     name: 'Game Random Serve',

@@ -2,23 +2,17 @@ import React, { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Header from "../../../components/header";
-import Left from "../../../components/partners/left"
-import Top from "../../../components/partners/top"
+import Left from "../../../components/square/left"
+import Top from "../../../components/square/top"
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 
-const collectibles=[
-    {
-        href:"",
-        img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmQhR4GA7ELbcVw36PujUHG1AtBtWoGEUjikVLPdGUwULC!list",
-        h1:"Miao",
-        h2:"-NMT",
-        nameimg:"https://nft-1257035533.cos.accelerate.myqcloud.com/user/825ed564-a802-4c45-a7db-d50594cee7af",
-        name:"AGOODIDEA"
-    },
+
+const game=[
+
     {
         href:"",
         img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmbVtZS1FG8MGzLhThaxijQh6DW6QPsrCAz4h6Efo39Bes!list",
@@ -29,7 +23,7 @@ const collectibles=[
     },
 
 ]
-export default function Collectibles() {
+export default function Game() {
     return (
         <div  className="relative  ">
             <Header></Header>
@@ -41,7 +35,7 @@ export default function Collectibles() {
                         <Left></Left>
                         <div className="md:ml-5 mt-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
-                                {collectibles.map((item)=>(
+                                {game.map((item)=>(
                                     <a key={item.h1} href={item.href} className="md:mx-3 md:mr-5 my-2 transform duration-500 hover:shadow-2xl hover:-translate-y-2">
                                         <div className="rounded-lg border border-gray-300">
                                             <img className="rounded-lg"

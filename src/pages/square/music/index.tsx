@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Header from "../../../components/header";
-import Left from "../../../components/partners/left"
-import Top from "../../../components/partners/top"
+import Left from "../../../components/square/left"
+import Top from "../../../components/square/top"
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -11,19 +11,19 @@ function classNames(...classes) {
 
 
 
-const game=[
+const music=[
 
     {
         href:"",
-        img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmbVtZS1FG8MGzLhThaxijQh6DW6QPsrCAz4h6Efo39Bes!list",
-        h1:"Dawn",
+        img:"https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmUdhu1PURkELjsVBp2grKbahBJPUWcosfVaZLTXt2Btuh!list",
+        h1:"Coffee",
         h2:"-NMT",
-        nameimg:"https://nft-1257035533.cos.accelerate.myqcloud.com/user/avatar_1635518433170.jpg",
-        name:"AGOODIDEA"
+        nameimg:"https://nft-1257035533.cos.accelerate.myqcloud.com/user/de1cfc97-6c89-4313-a799-bab26ba3a43f",
+        name:"qingshanyun"
     },
 
 ]
-export default function Game() {
+export default function Music() {
     return (
         <div  className="relative  ">
             <Header></Header>
@@ -35,7 +35,7 @@ export default function Game() {
                         <Left></Left>
                         <div className="md:ml-5 mt-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
-                                {game.map((item)=>(
+                                {music.map((item)=>(
                                     <a key={item.h1} href={item.href} className="md:mx-3 md:mr-5 my-2 transform duration-500 hover:shadow-2xl hover:-translate-y-2">
                                         <div className="rounded-lg border border-gray-300">
                                             <img className="rounded-lg"

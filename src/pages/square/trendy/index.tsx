@@ -1,8 +1,8 @@
 import React, { Fragment,useState } from 'react'
 import {Dialog, Menu, Transition} from '@headlessui/react'
 import Header from "../../../components/header";
-import Left from "../../../components/partners/left"
-import Top from "../../../components/partners/top"
+import Left from "../../../components/square/left"
+import Top from "../../../components/square/top"
 import {CheckIcon} from "@heroicons/react/outline";
 
 function classNames(...classes) {

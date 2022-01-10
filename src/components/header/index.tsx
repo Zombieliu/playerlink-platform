@@ -15,9 +15,9 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')}
 const navigation = [
     { name: 'Home',    href: '/home',current:false},
-    { name: 'Pricing', href: '#' ,current:false},
-    { name: 'Partners',href: '/partners/all',current:false },
-    { name: 'Company', href: '#',current:false },
+    {name: 'Square ',href: '/square/all',current:false },
+    // { name: 'Pricing', href: '#' ,current:false},
+    // { name: 'Company', href: '#',current:false },
 
 ]
  function Header() {
