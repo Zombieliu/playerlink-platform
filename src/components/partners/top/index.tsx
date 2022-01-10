@@ -66,7 +66,7 @@ export default function Top() {
                             <i className=" fa fa-search p-2 bg-white text-gray-400" aria-hidden="true"></i>
                             <input type="text" className=" outline-none px-1 w-11/12"  placeholder="Filter Collections"/>
                         </div>
-                        <div className=" mt-2 h-20 md:h-32 md:w-56  overflow-auto">
+                        <div className=" mt-2 h-20 xl:h-32 md:w-56  overflow-auto">
                             {user.map((item)=>(
                                 <a key={item.name} href="">
                                     <div className="flex my-2 text-center">
