@@ -33,6 +33,7 @@ const navigation = [
      const[account,setAccount]=useState([])
      //钱包余额
      const[money,setMoney]=useState(0)
+     //个人信息列表
      const[openuser,setOpenuser]=useState(false)
    let allAccounts
      async function login(){
@@ -85,7 +86,7 @@ const navigation = [
 
       const flexible=()=>{
 
-      select()
+          setOpenuser(true)
 
   }
      const getbalance = async (address) =>{
@@ -102,25 +103,27 @@ const navigation = [
 
          // @ts-ignore
          const balance = balance_data.data.free.toString().slice(0,-10)
-
-         setMoney(balance)
-
-         console.log(`${Alice} has a balance of ${previousFree}, nonce ${previousNonce}`);
-         console.log(`You may leave this example running and start example 06 or transfer any value to ${Alice}`);
+        if(!balance){
+            setMoney(0)
+        }else{
+            setMoney(balance)
+        }
+         // console.log(`${Alice} has a balance of ${previousFree}, nonce ${previousNonce}`);
+         // console.log(`You may leave this example running and start example 06 or transfer any value to ${Alice}`);
 
          // Here we subscribe to any balance changes and update the on-screen value
-         api.query.system.account(Alice, ({ data: { free: currentFree }, nonce: currentNonce }) => {
-             // Calculate the delta
-             const change = currentFree.sub(previousFree);
-
-             // Only display positive value changes (Since we are pulling `previous` above already,
-             // the initial balance change will also be zero)
-             if (!change.isZero()) {
-                 console.log(`New balance change of ${change}, nonce ${currentNonce}`);
-                 previousFree = currentFree;
-                 previousNonce = currentNonce;
-             }
-         });
+         // api.query.system.account(Alice, ({ data: { free: currentFree }, nonce: currentNonce }) => {
+         //     // Calculate the delta
+         //     const change = currentFree.sub(previousFree);
+         //
+         //     // Only display positive value changes (Since we are pulling `previous` above already,
+         //     // the initial balance change will also be zero)
+         //     if (!change.isZero()) {
+         //         console.log(`New balance change of ${change}, nonce ${currentNonce}`);
+         //         previousFree = currentFree;
+         //         previousNonce = currentNonce;
+         //     }
+         // });
 
      }
 
@@ -219,16 +222,11 @@ const navigation = [
                                         <div className="py-1">
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <div
-
-                                                        onClick={flexible}
-                                                        className={classNames(
-                                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                            'block px-4 py-2 text-sm'
-                                                        )}
+                                                    <Link href="/backstage"
                                                     >
-                                                        Flexible Fee
-                                                    </div>
+                                                        <a className=" hover:bg-gray-100 text-gray-900 text-gray-700 block px-4 py-2 text-sm" >
+                                                            Login Backstage</a>
+                                                    </Link>
                                                 )}
                                             </Menu.Item>
                                         </div>
@@ -558,20 +556,16 @@ const navigation = [
                                             <img src="https://cdn.discordapp.com/attachments/897398778166906911/918367515242029106/viewfile.png" alt=""/>
                                         </div>
                                         <div className="text-center font-bold">
-                                            Connect wallet
+                                            Welcome Serve Builder
                                         </div>
-                                        <div className="text-center text-sm">
-                                            To start using Playerlink Apps
+                                        <div className="text-center text-sm mt-2">
+                                            To start joinning PlayerLink Protocol
                                         </div>
                                         <div className="mt-3 text-center sm:mt-5 border-t ">
                                             <Dialog.Title as="h3" className="mt-3 text-lg leading-6 font-medium text-gray-900">
-                                                <button onClick={select}>
-                                                    <div className="flex justify-center">
-                                                        <img className="w-10 h-10" src="https://cdn.discordapp.com/attachments/876498266550853642/908665467273613392/unknown.png" alt=""/>
-                                                        <h1 className="ml-2 mt-2">Polkadot[.js] extension</h1>
-                                                        <div className="text-center mt-1.5 text-xl"><i className="ml-10  fa fa-arrow-right" aria-hidden="true"></i></div>
-                                                    </div>
-                                                </button>
+                                                <div className="flex justify-center p-5"><button className="bg-blue-400 text-white rounded-lg py-2 px-8 ">
+                                                    Register a Collection
+                                                </button></div>
                                             </Dialog.Title>
                                             <div className="mt-2">
 
@@ -579,9 +573,10 @@ const navigation = [
                                         </div>
                                     </div>
                                     <div className="mt-5 sm:mt-6 flex justify-center text-sm px-1 md:px-20 ">
-                                        By connecting, I accept Playerlink
+                                         I accept  Platform
                                         <div><a className="text-blue-400 ml-0.5" href="">Terms of Service</a></div>
                                     </div>
+
                                 </div>
                             </Transition.Child>
                         </div>
