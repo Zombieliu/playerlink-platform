@@ -2,11 +2,13 @@ import React, { Fragment,useState,useRef } from 'react'
 import {Dialog, Menu, Transition} from '@headlessui/react'
 import {CheckIcon,ExclamationIcon } from "@heroicons/react/outline";
 import { StarIcon } from '@heroicons/react/solid';
-import { ApiPromise, WsProvider } from '@polkadot/api';
+
 import { Tab } from '@headlessui/react';
 import Header from "../../../components/header";
 import Top from "../../../components/square/top";
 import Left from "../../../components/square/left";
+import {connectcheck, polkapi} from "../../../chain/polkadot/api";
+
 
 const product = {
     name: 'Game Random Serve',
@@ -111,19 +113,9 @@ export default function Details() {
         const web3FromSource = (await import("@polkadot/extension-dapp")).web3FromSource;
         const allInjected = await web3Enable('my cool dapp');
         const allAccounts = await web3Accounts();
-        const provider = new WsProvider('wss://playerlink.network');
 
-        // Create the API and wait until ready
-        const api = await ApiPromise.create({provider});
-
-        // Retrieve the chain & node information information via rpc calls
-        const [chain, nodeName, nodeVersion] = await Promise.all([
-            api.rpc.system.chain(),
-            api.rpc.system.name(),
-            api.rpc.system.version()
-        ]);
-
-        console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
+        const api = await polkapi();
+        await connectcheck();
 
         const account = allAccounts[0];
         const transferExtrinsic = api.tx.serve.registeredUseServerCertificate(0,0,100000000000)

@@ -2,10 +2,36 @@ import {BadgeCheckIcon, CollectionIcon} from "@heroicons/react/solid";
 import React, {Fragment, useState,} from "react";
 import {Dialog, Transition} from "@headlessui/react";
 import Link from 'next/link'
-
+import {polkapi,connectcheck} from "../../chain/polkadot/api";
 
 export default function Backstagelife() {
     const[openadmin,setOpenadmin]=useState(false)
+
+    async function Register() {
+        const api = await polkapi();
+        await connectcheck();
+        const web3Enable = (await import("@polkadot/extension-dapp")).web3Enable;
+        const web3Accounts = (await import("@polkadot/extension-dapp")).web3Accounts;
+        const web3FromSource = (await import("@polkadot/extension-dapp")).web3FromSource;
+        await web3Enable('my cool dapp');
+        const allAccounts = await web3Accounts();
+        const account = allAccounts[0];
+        const transferExtrinsic = api.tx.serve.registeredServerCollection()
+        const injector = await web3FromSource(account.meta.source);
+
+        transferExtrinsic.signAndSend(account.address, {signer: injector.signer}, ({status}) => {
+            if (status.isInBlock) {
+                console.log(`Completed at block hash #${status.asInBlock.toString()}`);
+            } else if (status.isFinalized) {
+                console.log(`Completed at block hash #${status.asFinalized.toString()}`);
+            } else{
+                console.log(`Current status: ${status.type}`);
+            }
+        }).catch((error: any) => {
+            console.log(':( transaction failed', error);
+        });
+    }
+
     return (
         <div>
         <div className="xl:flex-shrink-0 xl:w-64  bg-white">
@@ -119,7 +145,7 @@ export default function Backstagelife() {
                                     </div>
                                     <div className="mt-3 text-center sm:mt-5 border-t ">
                                         <Dialog.Title as="h3" className="mt-3 text-lg leading-6 font-medium text-gray-900">
-                                            <div className="flex justify-center p-5"><button className="bg-blue-400 text-white rounded-lg py-2 px-8 ">
+                                            <div className="flex justify-center p-5"><button onClick={Register} className="bg-blue-400 text-white rounded-lg py-2 px-8 ">
                                                 Register a Collection
                                             </button></div>
                                         </Dialog.Title>

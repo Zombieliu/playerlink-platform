@@ -77,7 +77,7 @@ export default function Serve() {
                                 <Listbox value={selected} onChange={setSelected} >
                                     {({ open }) => (
                                         <>
-                                            <Listbox.Label className="block text-sm font-medium text-gray-700 mt-3">serveTypes: PalletServeServeTypes</Listbox.Label>
+                                            <Listbox.Label className="block text-sm font-medium text-gray-700 mt-3">ServeTypes</Listbox.Label>
                                             <div className="mt-1 relative">
                                                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <span className="block truncate">{selected.name}</span>
@@ -135,7 +135,7 @@ export default function Serve() {
                                 <Listbox value={selected1} onChange={setSelected1}>
                                     {({ open }) => (
                                         <>
-                                            <Listbox.Label className="block text-sm font-medium text-gray-700 mt-3">serveWays: PalletServeServeWays</Listbox.Label>
+                                            <Listbox.Label className="block text-sm font-medium text-gray-700 mt-3">ServeWays</Listbox.Label>
                                             <div className="mt-1 relative">
                                                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <span className="block truncate">{selected1.name}</span>
@@ -192,7 +192,7 @@ export default function Serve() {
                                 <Listbox value={selected2} onChange={setSelected2}>
                                     {({ open }) => (
                                         <>
-                                            <Listbox.Label className="block text-sm font-medium text-gray-700 mt-3">serveState: PalletServeServeState</Listbox.Label>
+                                            <Listbox.Label className="block text-sm font-medium text-gray-700 mt-3">ServeState</Listbox.Label>
                                             <div className="mt-1 relative">
                                                 <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                     <span className="block truncate">{selected2.name}</span>
@@ -331,7 +331,8 @@ export default function Serve() {
                                 </div>
                                 <div className="flex justify-end">
                                 <button className="py-1.5 px-1 bg-blue-400 text-white rounded-lg  mt-3">
-                                    Submit</button></div>
+                                    Submit</button>
+                                </div>
                             </div>
 
                         </div>

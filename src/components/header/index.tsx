@@ -10,7 +10,13 @@ import {
     QuestionMarkCircleIcon,
     XIcon,
 } from '@heroicons/react/outline'
-import {ApiPromise, WsProvider} from "@polkadot/api";
+import {connectcheck, polkapi} from "../../chain/polkadot/api";
+
+
+
+
+
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')}
 const navigation = [
@@ -92,10 +98,8 @@ const navigation = [
      const getbalance = async (address) =>{
          const Alice = address;
 
-         // Initialise the provider to connect to the local node
-         const provider = new WsProvider('wss://playerlink.network');
-
-         const api = await ApiPromise.create({ provider });
+         const api = await polkapi();
+         await connectcheck();
 
          // @ts-ignore
          let { data: { free: previousFree }, nonce: previousNonce } = await api.query.system.account(Alice);
@@ -108,23 +112,6 @@ const navigation = [
         }else{
             setMoney(balance)
         }
-         // console.log(`${Alice} has a balance of ${previousFree}, nonce ${previousNonce}`);
-         // console.log(`You may leave this example running and start example 06 or transfer any value to ${Alice}`);
-
-         // Here we subscribe to any balance changes and update the on-screen value
-         // api.query.system.account(Alice, ({ data: { free: currentFree }, nonce: currentNonce }) => {
-         //     // Calculate the delta
-         //     const change = currentFree.sub(previousFree);
-         //
-         //     // Only display positive value changes (Since we are pulling `previous` above already,
-         //     // the initial balance change will also be zero)
-         //     if (!change.isZero()) {
-         //         console.log(`New balance change of ${change}, nonce ${currentNonce}`);
-         //         previousFree = currentFree;
-         //         previousNonce = currentNonce;
-         //     }
-         // });
-
      }
 
      useEffect(()=>{
