@@ -49,10 +49,12 @@ export default function Left() {
                 <div className="mt-3 md:mt-0 md:ml-6">
                     <div className="flex flex-wrap justify-between">
                         {type.map((item)=>(
-                            <Link key={item.title} href={item.href}>
+                            <Link key={item.title} href={item.href}
+                            >
                             <a className="px-2 md:px-4 py-1 md:mr-6 rounded-lg text-base  md:text-lg text-gray-500 hover:bg-black hover:text-white focus:bg-black focus:text-white">
                                 {item.title}</a></Link>
                         ))}
+                        
                     </div>
 
 
