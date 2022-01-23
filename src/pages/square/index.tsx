@@ -52,7 +52,7 @@ export default function Square() {
              <div>
                  <Left></Left>
                  <div className="md:ml-5 mt-8">
-                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
+                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 ">
                      {commodity.map((item)=>(
                      <a key={item.h1} href={item.href} className="md:mx-3 md:mr-5 my-2 transform duration-500 hover:shadow-2xl hover:-translate-y-2">
                      <div className="rounded-lg border border-gray-300">
