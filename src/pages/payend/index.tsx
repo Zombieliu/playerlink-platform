@@ -6,11 +6,11 @@ import Tail from"../../components/tail"
 const products = [
     {
         id: 1,
-        name: 'Nomad Tumbler',
+        name: 'Game Random Serve',
         description:
-            'This durable and portable insulated tumbler will keep your beverage at the perfect temperature during your next adventure.',
+            'Game developers can obtain random numbers on different chains through this service, such as NEAR, SOLANA, POLKADOT, etc.',
         href: '#',
-        price: '35.00',
+        price: '35.00 PL',
         status: 'Preparing to ship',
         step: 1,
         date: 'March 24, 2021',
@@ -18,15 +18,15 @@ const products = [
         address: ['Floyd Miles', '7363 Cynthia Pass', 'Toronto, ON N3Y 4H8'],
         email: 'f•••@example.com',
         phone: '1•••••••••40',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/confirmation-page-03-product-01.jpg',
-        imageAlt: 'Insulated bottle with white base and black snap lid.',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmZ7TFZe7B5Ts8SZaiiPLcXCXbFmVtFnAK3aPwZD9dnRcZ!list',
+        imageAlt: 'Game Random Serve',
     },
     {
         id: 2,
-        name: 'Minimalist Wristwatch',
-        description: 'This contemporary wristwatch has a clean, minimalist look and high quality components.',
+        name: 'Basic Tee',
+        description: 'Game developers can obtain random numbers on different chains through this service, such as NEAR, SOLANA, POLKADOT, etc.',
         href: '#',
-        price: '149.00',
+        price: '149.00 PL',
         status: 'Shipped',
         step: 0,
         date: 'March 23, 2021',
@@ -34,9 +34,9 @@ const products = [
         address: ['Floyd Miles', '7363 Cynthia Pass', 'Toronto, ON N3Y 4H8'],
         email: 'f•••@example.com',
         phone: '1•••••••••40',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/confirmation-page-03-product-02.jpg',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmQhR4GA7ELbcVw36PujUHG1AtBtWoGEUjikVLPdGUwULC!list',
         imageAlt:
-            'Arm modeling wristwatch with black leather band, white watch face, thin watch hands, and fine time markings.',
+            'Basic Tee.',
     },
     // More products...
 ]
@@ -207,19 +207,19 @@ export default function Payend() {
                         <dl className="mt-8 divide-y divide-gray-200 text-sm lg:mt-0 lg:col-span-5">
                             <div className="pb-4 flex items-center justify-between">
                                 <dt className="text-gray-600">Subtotal</dt>
-                                <dd className="font-medium text-gray-900">$72</dd>
+                                <dd className="font-medium text-gray-900">$72 PL</dd>
                             </div>
                             <div className="py-4 flex items-center justify-between">
                                 <dt className="text-gray-600">Shipping</dt>
-                                <dd className="font-medium text-gray-900">$5</dd>
+                                <dd className="font-medium text-gray-900">$5 PL</dd>
                             </div>
                             <div className="py-4 flex items-center justify-between">
                                 <dt className="text-gray-600">Tax</dt>
-                                <dd className="font-medium text-gray-900">$6.16</dd>
+                                <dd className="font-medium text-gray-900">$6.16 PL</dd>
                             </div>
                             <div className="pt-4 flex items-center justify-between">
                                 <dt className="font-medium text-gray-900">Order total</dt>
-                                <dd className="font-medium text-indigo-600">$83.16</dd>
+                                <dd className="font-medium text-indigo-600">$83.16 PL</dd>
                             </div>
                         </dl>
                     </div>

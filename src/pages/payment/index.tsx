@@ -5,53 +5,53 @@ import Link from 'next/link'
 import Header from"../../components/header"
 import Tail from"../../components/tail"
 
-const subtotal = '$210.00'
-const discount = { code: 'CHEAPSKATE', amount: '$24.00' }
-const taxes = '$23.68'
-const shipping = '$22.00'
-const total = '$341.68'
+const subtotal = '$210.00 PL'
+const discount = { code: 'CHEAPSKATE', amount: '$24.00 PL' }
+const taxes = '$23.68 PL'
+const shipping = '$22.00 PL'
+const total = '$341.68 PL'
 const products = [
     {
         id: 1,
-        name: 'Micro Backpack',
+        name: 'Game Random Serve',
         href: '#',
-        price: '$70.00',
-        color: 'Moss',
-        size: '5L',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-04-product-01.jpg',
+        price: '$70.00 PL',
+        type: 'Game',
+        size: '',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmZ7TFZe7B5Ts8SZaiiPLcXCXbFmVtFnAK3aPwZD9dnRcZ!list',
         imageAlt:
             'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
     },
     {
         id: 2,
-        name: 'Micro Backpack',
+        name: 'Basic Tee',
         href: '#',
-        price: '$70.00',
-        color: 'Moss',
-        size: '5L',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-04-product-01.jpg',
+        price: '$70.00 PL',
+        type: 'Game',
+        size: '',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmQhR4GA7ELbcVw36PujUHG1AtBtWoGEUjikVLPdGUwULC!list',
         imageAlt:
             'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
     },
     {
         id: 3,
-        name: 'Micro Backpack',
+        name: 'Nomad Tumbler',
         href: '#',
-        price: '$70.00',
-        color: 'Moss',
-        size: '5L',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-04-product-01.jpg',
+        price: '$70.00 PL',
+        type: 'Game',
+        size: '',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmbVtZS1FG8MGzLhThaxijQh6DW6QPsrCAz4h6Efo39Bes!list',
         imageAlt:
             'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
     },
     {
         id: 4,
-        name: 'Micro Backpack',
+        name: 'Basic Tee',
         href: '#',
-        price: '$70.00',
-        color: 'Moss',
-        size: '5L',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/checkout-page-04-product-01.jpg',
+        price: '$70.00 PL',
+        type: 'Game',
+        size: '',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmUdhu1PURkELjsVBp2grKbahBJPUWcosfVaZLTXt2Btuh!list',
         imageAlt:
             'Moss green canvas compact backpack with double top zipper, zipper front pouch, and matching carry handle and backpack straps.',
     },
@@ -59,18 +59,13 @@ const products = [
     // More products...
 ]
 const deliveryMethods = [
-    { id: 1, title: 'Standard', turnaround: '4–10 business days', price: '$5.00' },
-    { id: 2, title: 'Express', turnaround: '2–5 business days', price: '$16.00' },
+    { id: 1, title: 'Standard', turnaround: '4–10 business days', price: '$5.00 PL' },
+    { id: 2, title: 'Express', turnaround: '2–5 business days', price: '$16.00 PL' },
 ]
 const paymentMethods = [
     { id: 'credit-card', title: 'Credit card' },
     { id: 'paypal', title: 'PayPal' },
     { id: 'etransfer', title: 'eTransfer' },
-]
-const steps = [
-    { name: 'Cart', href: 'javascript:window.history.back(-1)', status: 'complete' },
-    { name: 'Billing Information', href: '#', status: 'current' },
-    { name: 'Confirmation', href: '#', status: 'upcoming' },
 ]
 
 function classNames(...classes) {
@@ -93,21 +88,25 @@ export default function Payment() {
                       <div className="flex justify-center mb-12">
                       <nav aria-label="Progress" className=" ">
                           <ol role="list" className="flex space-x-4">
-                              {steps.map((step, stepIdx) => (
-                                  <li key={step.name} className="flex items-center">
-                                      {step.status === 'current' ? (
-                                          <a href={step.href} aria-current="page" className="text-indigo-600">
-                                              {step.name}
-                                          </a>
-                                      ) : (
-                                          <a href={step.href}>{step.name}</a>
-                                      )}
 
-                                      {stepIdx !== steps.length - 1 ? (
-                                          <ChevronRightIcon className="w-5 h-5 text-gray-300 ml-4" aria-hidden="true" />
-                                      ) : null}
+                                  <li  className="flex items-center">
+
+                                      <a href='javascript:window.history.back(-1)'>complete</a>
+
+                                      <ChevronRightIcon className="w-5 h-5 text-gray-300 ml-4" aria-hidden="true" />
+
                                   </li>
-                              ))}
+                              <li  className="flex items-center">
+                                      <div  aria-current="page" className="text-indigo-600">
+                                          Billing Information
+                                      </div>
+                                      <ChevronRightIcon className="w-5 h-5 text-gray-300 ml-4" aria-hidden="true" />
+                              </li>
+
+                              <li  className="flex items-center">
+                                      <div>Confirmation</div>
+                              </li>
+
                           </ol>
                       </nav>
                       </div>
@@ -136,7 +135,7 @@ export default function Payment() {
                                       </div>
                                   </div>
 
-                                  <div className="mt-10 border-t border-gray-200 pt-10">
+                                  <div className="mt-10 border-t border-gray-200 pt-10 hidden">
                                       <h2 className="text-lg font-medium text-gray-900">Shipping information</h2>
 
                                       <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
@@ -229,7 +228,7 @@ export default function Payment() {
                                       </div>
                                   </div>
 
-                                  <div className="mt-10 border-t border-gray-200 pt-10">
+                                  <div className="mt-10 border-t border-gray-200 pt-10 ">
                                       <RadioGroup value={selectedDeliveryMethod} onChange={setSelectedDeliveryMethod}>
                                           <RadioGroup.Label className="text-lg font-medium text-gray-900">Delivery method</RadioGroup.Label>
 
@@ -284,7 +283,7 @@ export default function Payment() {
                                   </div>
 
                                   {/* Payment */}
-                                  <div className="mt-10 border-t border-gray-200 pt-10">
+                                  <div className="mt-10 border-t border-gray-200 pt-10 hidden">
                                       <h2 className="text-lg font-medium text-gray-900">Payment</h2>
 
                                       <fieldset className="mt-4">
@@ -400,7 +399,7 @@ export default function Payment() {
                                                           <div className="text-sm font-medium space-y-1">
                                                               <h3 className="text-gray-900">{product.name}</h3>
                                                               <p className="text-gray-900">{product.price}</p>
-                                                              <p className="text-gray-500">{product.color}</p>
+                                                              <p className="text-gray-500">{product.type}</p>
                                                               <p className="text-gray-500">{product.size}</p>
                                                           </div>
                                                           <div className="flex space-x-4">
