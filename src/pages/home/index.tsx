@@ -1,5 +1,6 @@
 import React, {useRef ,useEffect} from 'react'
 import Header from"../../components/header"
+import Tail from"../../components/tail"
 const DAPP=[
     {
         id:"1",
@@ -68,46 +69,6 @@ const Otehr=[
         button2href:"",
 
     },]
-const toend=[
-    {
-        title:"Quick Entry",
-        h1:"About PlayerLink",
-        h1url:"#",
-        h2:"Manual",
-        h2url:"#",
-        h3:"Update record",
-        h3url:"#",
-        h4:"Any feedback",
-        h4url:"#",
-        h5:"",
-        h5url:"",
-    },
-    {
-        title:"Links",
-        h1:"Protocol",
-        h1url:"https://playerlink.org/",
-        h2:"Network ",
-        h2url:"https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fplayerlink.network#/explorer",
-        h3:"Foundation",
-        h3url:" https://playerlink.foundation/",
-        h4:"Ventures ",
-        h4url:"https://playerlink.ventures/",
-        h5:"Capital ",
-        h5url:" https://playerlink.capital/"
-    },{
-        title:"社区",
-        h1:"Discord",
-        h1url:"https://discord.gg/Hypkryxwsb",
-        h2:"Twitter",
-        h2url:"#",
-        h3:"Instagram",
-        h3url:"#",
-        h4:'Medium',
-        h4url:"",
-        h5:"",
-        h5url:"",
-    },
-]
 
 
 function classNames(...classes) {
@@ -302,36 +263,7 @@ export default function Home() {
 
 
                     {/* Logo cloud */}
-                    <div className="bg-gray-100">
-                        <div className="pt-36 pb-12 sm:px-6 lg:px-8 bg-gray-800">
-                            <div className="md:flex md:justify-around">
-                                {toend.map((ends)=>(
-                                    <div key={ends.title} className="">
-                                        <div className="mb-6">
-                                            <h1 className="flex justify-center text-xl font-bold text-gray-200 mb-4">
-                                                {ends.title}
-                                            </h1>
-                                            <h2 className="">
-                                                <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
-                                                    <a href={ends.h1url}>{ends.h1}</a></p>
-                                                <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
-                                                    <a href={ends.h2url}>{ends.h2}</a></p>
-                                                <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
-                                                    <a href={ends.h3url}>{ends.h3}</a></p>
-                                                <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
-                                                    <a href={ends.h4url}>{ends.h4}</a></p>
-                                                <p className="flex mb-2 justify-center text-gray-400 hover:text-gray-50 delay-75">
-                                                    <a href={ends.h5url}>{ends.h5}</a></p>
-                                            </h2>
-                                        </div>
-                                    </div>))}
-                            </div>
-                            <p className=" text-center p-5 text-left mt-16 text-sm font-semibold uppercase text-gray-500 tracking-wide">
-                                ©2022 PlayerLink-Platform,A service platform built on PlayerLink.  All RIGHTS RESERVED.
-                            </p>
-
-                        </div>
-                    </div>
+                    <Tail></Tail>
                 </div>
 
                 {/* More main page content here... */}
