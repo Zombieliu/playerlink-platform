@@ -13,11 +13,6 @@ import {
 import {connectcheck, polkapi} from "../../chain/polkadot/api";
 import Setup from "../setup";
 
-
-
-
-
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')}
 const navigation = [
@@ -190,9 +185,19 @@ const navigation = [
 
                             {/*设置区域*/}
                             <Setup></Setup>
+                            <div>
+                                <div className=" rounded-full text-2xl flex items-center text-gray-400 hover:text-gray-600 ">
+                                    <Link href="/shoppingcart">
+                                        <a>
+                                            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        </a>
+                                    </Link>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
+                    <div className="fixed z-20 inset-x-0">
 
                     <Transition
                         as={Fragment}
@@ -260,6 +265,7 @@ const navigation = [
                             </div>
                         </Popover.Panel>
                     </Transition>
+                        </div>
                 </Popover>
             </header>
                 <Transition.Root show={opentrue} as={Fragment}>

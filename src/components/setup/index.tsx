@@ -172,10 +172,10 @@ export default function Setup() {
                     <div className="py-1 border-t-2 text-gray-400">
                         <Menu.Item>
 
-                                <Link href=""
+                                <Link href="/historyrecord"
                                 >
                                     <a className=" hover:bg-gray-100 hover:text-gray-800  block px-4 py-2 text-sm" >
-                                        Announcements</a>
+                                        History record</a>
                                 </Link>
 
 
