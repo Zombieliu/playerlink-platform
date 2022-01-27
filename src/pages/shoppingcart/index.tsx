@@ -6,35 +6,34 @@ import Tail from"../../components/tail"
 const products = [
     {
         id: 1,
-        name: 'Basic Tee',
-        href: '#',
-        price: '$32.00',
-        color: 'Sienna',
+        name: 'Game Random Serve',
+        href: '/square/details',
+        price: '$32.00 PL',
+        type: 'Game',
         inStock: true,
-        size: 'Large',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
-        imageAlt: "Front of men's Basic Tee in sienna.",
+        size: '',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmZ7TFZe7B5Ts8SZaiiPLcXCXbFmVtFnAK3aPwZD9dnRcZ!list',
+        imageAlt: "Game Random Serve.",
     },
     {
         id: 2,
         name: 'Basic Tee',
         href: '#',
-        price: '$32.00',
-        color: 'Black',
+        price: '$32.00 PL',
+        type: 'Miao',
         inStock: false,
-        leadTime: '3–4 weeks',
         size: 'Large',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg',
-        imageAlt: "Front of men's Basic Tee in black.",
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmQhR4GA7ELbcVw36PujUHG1AtBtWoGEUjikVLPdGUwULC!list',
+        imageAlt: "Basic Tee.",
     },
     {
         id: 3,
         name: 'Nomad Tumbler',
         href: '#',
-        price: '$35.00',
-        color: 'White',
+        price: '$35.00 PL',
+        type: 'Cofee',
         inStock: true,
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmdeaaPXiB2VEiGa4byq7sMEip1fB73ybcfEhHjVgHCp3a!list',
         imageAlt: 'Insulated bottle with white base and black snap lid.',
     },
 ]
@@ -43,10 +42,10 @@ const relatedProducts = [
         id: 1,
         name: 'Billfold Wallet',
         href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-related-product-01.jpg',
+        imageSrc: 'https://nft-1257035533.cos.accelerate.myqcloud.com/nft/QmXD5VPSwKBcqT7igVQwQn7B6sCvRXxPxbQzVfL6yjquPD!list',
         imageAlt: 'Front of Billfold Wallet in natural leather.',
-        price: '$118',
-        color: 'Natural',
+        price: '$118 PL',
+        type: 'Natural',
     },
     // More products...
 ]
@@ -96,7 +95,7 @@ export default function Shoppingcart() {
                                                     </h3>
                                                 </div>
                                                 <div className="mt-1 flex text-sm">
-                                                    <p className="text-gray-500">{product.color}</p>
+                                                    <p className="text-gray-500">{product.type}</p>
                                                     {product.size ? (
                                                         <p className="ml-4 pl-4 border-l border-gray-200 text-gray-500">{product.size}</p>
                                                     ) : null}
@@ -111,7 +110,7 @@ export default function Shoppingcart() {
                                                 <select
                                                     id={`quantity-${productIdx}`}
                                                     name={`quantity-${productIdx}`}
-                                                    className="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                    className="max-w-full rounded-md hidden border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                                 >
                                                     <option value={1}>1</option>
                                                     <option value={2}>2</option>
@@ -139,7 +138,7 @@ export default function Shoppingcart() {
                                                 <ClockIcon className="flex-shrink-0 h-5 w-5 text-gray-300" aria-hidden="true" />
                                             )}
 
-                                            <span>{product.inStock ? 'In stock' : `Ships in ${product.leadTime}`}</span>
+                                            <span>{product.inStock ? 'Available' : 'Unavailable'}</span>
                                         </p>
                                     </div>
                                 </li>
@@ -159,7 +158,7 @@ export default function Shoppingcart() {
                         <dl className="mt-6 space-y-4">
                             <div className="flex items-center justify-between">
                                 <dt className="text-sm text-gray-600">Subtotal</dt>
-                                <dd className="text-sm font-medium text-gray-900">$99.00</dd>
+                                <dd className="text-sm font-medium text-gray-900">$99.00 PL</dd>
                             </div>
                             <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                                 <dt className="flex items-center text-sm text-gray-600">
@@ -169,7 +168,7 @@ export default function Shoppingcart() {
                                         <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
                                     </a>
                                 </dt>
-                                <dd className="text-sm font-medium text-gray-900">$5.00</dd>
+                                <dd className="text-sm font-medium text-gray-900">$5.00 PL</dd>
                             </div>
                             <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                                 <dt className="flex text-sm text-gray-600">
@@ -179,11 +178,11 @@ export default function Shoppingcart() {
                                         <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
                                     </a>
                                 </dt>
-                                <dd className="text-sm font-medium text-gray-900">$8.32</dd>
+                                <dd className="text-sm font-medium text-gray-900">$8.32 PL</dd>
                             </div>
                             <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                                 <dt className="text-base font-medium text-gray-900">Order total</dt>
-                                <dd className="text-base font-medium text-gray-900">$112.32</dd>
+                                <dd className="text-base font-medium text-gray-900">$112.32 PL</dd>
                             </div>
                         </dl>
 
@@ -223,7 +222,7 @@ export default function Shoppingcart() {
                                                 {relatedProduct.name}
                                             </a>
                                         </h3>
-                                        <p className="mt-1 text-sm text-gray-500">{relatedProduct.color}</p>
+                                        <p className="mt-1 text-sm text-gray-500">{relatedProduct.type}</p>
                                     </div>
                                     <p className="text-sm font-medium text-gray-900">{relatedProduct.price}</p>
                                 </div>
